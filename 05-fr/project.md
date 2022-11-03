@@ -16,10 +16,10 @@ Specyfikacja wymagań funkcjonalnych w ramach informatyzacji procesu sprzedaży 
 
 **Scenariusz główny:**
 1. [Sprzedający](#ac1) wystawia produkt na aukcję. ([UC1](#uc1))
-2. [Kupujący](#ac2) oferuje kwotę za produkt wyższą od aktualnie najwyższej oferty. ([BR1](#br1))
+2. [Kupujący](#ac2) oferuje kwotę za produkt wyższą od aktualnie najwyższej oferty. ([BR1](#br1), [UC2](#uc2))
 3. [Kupujący](#ac2) wygrywa aukcję ([BR2](#br2))
-4. [Kupujący](#ac2) przekazuje należność Sprzedającemu.
-5. [Sprzedający](#ac1) przekazuje produkt Kupującemu.
+4. [Kupujący](#ac2) przekazuje należność Sprzedającemu([UC8](#uc8)).
+5. [Sprzedający](#ac1) przekazuje produkt Kupującemu([UC3](#uc3)).
 
 **Scenariusze alternatywne:** 
 
@@ -50,10 +50,17 @@ Osoba chcąca zakupić produkt na aukcji.
 
 [Sprzedający](#ac1):
 * [UC1](#uc1): Wystawienie produktu na aukcję
-* ...
+* [UC2](#uc2): Sprawdzenie danych użytkownika, który wygrał
+* [UC3](#uc3): Zamówienie kuriera
+* [UC4](#uc4): Kontrola wpływu środków za zakup
+
+
 
 [Kupujący](#ac2)
-* ...
+* [UC5](#uc5): Podbicie ceny ogłoszenia
+* [UC6](#uc6): Obserwowanie dostępnych ofert
+* [UC7](#uc7): Wprowadzenie danych do wysyłki
+* [UC8](#uc8): Opłacenie akucji wygranej
 
 ---
 <a id="uc1"></a>
@@ -77,17 +84,37 @@ Osoba chcąca zakupić produkt na aukcji.
 ---
 
 <a id="uc2"></a>
-### UC2: ...
+### UC2: Sprawdzenie danych użytkownika, który wygrał
 
-**Aktorzy:** [Sprzedający](#ac1), [Kupujący](#ac2), ...
+**Aktorzy:** [Sprzedający](#ac1)
 
 **Scenariusz główny:**
-1. ...
+1. [Sprzedający](#ac1) zgłasza do systemu chęć sprawdzenia danych osoby, która wygrała aukcję
+2. System weryfikuje, kto wygrał aukcję i informuje [Sprzedający](#ac1)'ego
 
 **Scenariusze alternatywne:** 
 
-1.A. ...
-* 4.A.1. ...
+1.A. Aukcja jeszcze się nie zakończyła
+* 4.A.1. System informuje o czasie pozostałym do zamknięcia licytacji
+
+---
+
+<a id="uc3"></a>
+### UC3: Zamówienie kuriera
+
+**Aktorzy:** [Sprzedający](#ac1)
+
+**Scenariusz główny:**
+1. [Sprzedający](#ac1) zgłasza do systemu chęć zamówienia kuriera
+2. System generuje list przewozowy 
+3. System weryfikuje dostępność drukarki
+4. System drukuje list przewozowy
+
+**Scenariusze alternatywne:** 
+
+1.A. Brak aktywnej drukarki
+* 4.A.1. System informuje  [Sprzedający](#ac1)'ego o braku dostępnej drukarki
+* 4.A.1. Przejdz do kroku 3.
 
 ---
 
