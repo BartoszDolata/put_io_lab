@@ -17,8 +17,6 @@ public class ExpenseRepositoryTest {
     @Test
     void loadExpenses() {
 
-//        ExpenseRepository test = new ExpenseRepository();
-//        assertEquals(Collections.emptyList(),test.getExpenses());
         MyDatabase db = new MyDatabase();
         ExpenseRepository test = new ExpenseRepository(db);
         assertEquals(Collections.emptyList(),test.getExpenses());
